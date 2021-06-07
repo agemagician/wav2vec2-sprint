@@ -10,7 +10,7 @@ parameters:
   report_to: 
     value: wandb
   model_name_or_path:
-    value: facebook/wav2vec2-large-xlsr-53
+    values: [facebook/wav2vec2-large-xlsr-53, facebook/wav2vec2-large-100k-voxpopuli]
   dataset_config_name:
     value: fi
   output_dir:
