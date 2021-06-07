@@ -72,7 +72,7 @@ parameters:
   mask_time_prob:
     values: [0.05, 0.1, 0.2]
   val_ratio:
-    value: 1.0
+    value: 1
   upload_final_model_to_wandb:
     value: True
   apply_gaussian_noise_with_p:
