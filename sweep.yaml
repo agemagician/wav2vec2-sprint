@@ -12,7 +12,7 @@ parameters:
   model_name_or_path:
     values: [facebook/wav2vec2-large-xlsr-53, facebook/wav2vec2-large-100k-voxpopuli]
   dataset_config_name:
-    value: fi
+    value: vi
   output_dir:
     value: ../models/vi/wav2vec2-large-xlsr-vi-sweep
   cache_dir:
