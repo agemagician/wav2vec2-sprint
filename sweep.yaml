@@ -1,5 +1,5 @@
 program: run_common_voice.py
-name: hf-wav2vec-sprint-fi
+name: hf-wav2vec-sprint-vi
 method: random
 metric:
   goal: minimize
@@ -14,27 +14,27 @@ parameters:
   dataset_config_name:
     value: fi
   output_dir:
-    value: ../models/fi/wav2vec2-large-xlsr-fi-sweep
+    value: ../models/vi/wav2vec2-large-xlsr-vi-sweep
   cache_dir:
-    value: ../data/fi
+    value: ../data/vi
   overwrite_output_dir:
     value: True
   fp16:
-    value: True
+    value: False
   max_steps:
-    value: 500
+    value: 4000
   eval_steps:
-    value: 100
+    value: 200
   logging_steps:
-    value: 100
+    value: 200
   do_eval:
     value: True
   do_train:
     value: True
   per_device_train_batch_size:
-    value: 16
+    value: 32
   per_device_eval_batch_size:
-    value: 16
+    value: 32
   dataloader_num_workers:
     value: 10
   preprocessing_num_workers:
@@ -57,12 +57,10 @@ parameters:
     value: 0.5
   lr_constant_ratio:
     value: 0.0
-  augmentation_factor:
-    values: [0, 1]
   layerdrop:
     value: 0.0
   learning_rate:
-    values: [1e-4, 3e-4, 6e-4, 1e-3]
+    values: [1e-3, 1e-4, 3e-4, 6e-4]
   attention_dropout:
     values: [0.05, 0.1, 0.2]
   activation_dropout:
@@ -73,6 +71,18 @@ parameters:
     values: [0.05, 0.1, 0.2]
   mask_time_prob:
     values: [0.05, 0.1, 0.2]
+  val_ratio:
+    value: 1.0
+  upload_final_model_to_wandb:
+    value: True
+  apply_gaussian_noise_with_p:
+    values: [0.0, 0.5, 0.75]
+  apply_gain_with_p:
+    values: [0.0, 0.5, 0.75]
+  apply_pitch_shift_with_p:
+    values: [0.0, 0.5, 0.75]
+  apply_time_stretch_with_p:
+    values: [0.0, 0.5, 0.75]
 early_terminate:
   type: hyperband
   min_iter: 200
